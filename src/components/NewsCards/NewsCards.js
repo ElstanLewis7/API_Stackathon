@@ -9,7 +9,7 @@ const infoCards = [
     id: 1,
     color: '#00838f',
     title: 'Latest News',
-    text: "What's the latest news",
+    text: 'What is the top stories',
   },
   {
     id: 2,
