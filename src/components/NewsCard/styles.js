@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles({
   media: {
-    height: 250,
+    height: 200,
   },
   border: {
     border: 'solid',
@@ -17,8 +17,10 @@ export default makeStyles({
     borderBottom: '10px solid white',
   },
   activeCard: {
-    borderBottom: '10px solid #22289a',
+    border: '2px solid #22289a',
+    transform: 'scale(1.05)',
   },
+
   grid: {
     display: 'flex',
   },

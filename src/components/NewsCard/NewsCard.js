@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, createRef } from 'react';
 import {
   Card,
   CardActions,
@@ -9,16 +9,43 @@ import {
   CardActionArea,
 } from '@material-ui/core';
 
+import classNames from 'classnames';
 import useStyles from './styles.js';
 
 const NewsCard = ({
   article: { description, publishedAt, source, title, url, urlToImage },
+  activeArticle,
   i,
 }) => {
   const classes = useStyles();
 
+  //Store Refs in an Array--> Scrolling Feature
+  const [elemRefs, setElemRefs] = useState([]);
+  const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50);
+  //Create Refs at start. When News mounts.
+  useEffect(() => {
+    //Always have 20 cards. If there is a ref we keep it, or else we create one.
+    setElemRefs((refs) =>
+      Array(20)
+        .fill()
+        .map((_, j) => refs[j] || createRef())
+    );
+  }, []);
+
+  useEffect(() => {
+    if (i === activeArticle && elemRefs[activeArticle]) {
+      scrollToRef(elemRefs[activeArticle]);
+    }
+  }, [i, activeArticle, elemRefs]);
+
   return (
-    <Card className={classes.card}>
+    <Card
+      ref={elemRefs[i]}
+      className={classNames(
+        classes.card,
+        activeArticle === i ? classes.activeCard : null
+      )}
+    >
       <CardActionArea href={url} target="_blank">
         <CardMedia
           className={classes.media}
