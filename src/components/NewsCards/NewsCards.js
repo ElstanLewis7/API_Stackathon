@@ -6,6 +6,15 @@ import useStyles from './styles.js';
 
 const NewsCards = ({ articles }) => {
   const classes = useStyles();
+
+  if (!articles.length) {
+    return (
+      <Grow in>
+        <Grid></Grid>
+      </Grow>
+    );
+  }
+
   return (
     <Grow in>
       <Grid
