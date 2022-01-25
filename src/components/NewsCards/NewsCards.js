@@ -23,7 +23,7 @@ const infoCards = [
     color: '#4527a0',
     title: 'News by Terms',
     info: 'Bitcoin, PlayStation 5, Smartphones, JavaScript..',
-    text: 'Show me anything on coding',
+    text: "What's up with JavaScript",
   },
   {
     id: 4,
