@@ -1,7 +1,6 @@
-# Project to gain exposure to api's, ai, material -ui
+# A news app that fetches information based on what yopu ask it.
 
-This project was created to get me comfortable using api's to fetch data.
-I also explored the Alan app/ai.
+
 
 # Link to github
 
